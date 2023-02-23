@@ -1,6 +1,6 @@
 {
-    "name": "Replicator",
-    "url": "https://github.com/PostHog/posthog-plugin-replicator",
+    "name": "Replicator + Static Filter",
+    "url": "https://github.com/everald/posthog-plugin-replicator",
     "description": "Replicate PostHog event stream in another PostHog instance",
     "main": "index.ts",
     "config": [

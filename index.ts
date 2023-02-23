@@ -39,8 +39,17 @@ const reverseAutocaptureEvent = (autocaptureEvent: StrippedEvent) => {
 
 const plugin: Plugin<ReplicatorMetaInput> = {
     exportEvents: async (events, { config }) => {
+        // filter out events, would love to get them from config like config.eventsToIgnore
+        const eventsToIgnore = new Set(['$autocapture', 'insurance__created', 'insurance_quote__created', 'quote_created'])
+        
         const batch = []
         for (const event of events) {
+            // skip if event has to be ignored
+            if (eventsToIgnore.has(event.event)) {
+                console.log(`Ignored event "${event.event}"`)
+                continue
+            }
+
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const { team_id, ip, person: _, ...sendableEvent } = { ...event, token: config.project_api_key }
 

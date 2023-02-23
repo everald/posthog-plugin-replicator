@@ -1,5 +1,5 @@
 {
-    "name": "posthog-plugin-replicator",
+    "name": "posthog-plugin-replicator-filtered",
     "version": "1.1.1",
     "description": "Replicate PostHog event stream in another PostHog instance",
     "keywords": [
@@ -8,7 +8,7 @@
         "replication"
     ],
     "main": "index.ts",
-    "repository": "github:PostHog/posthog-plugin-replicator",
+    "repository": "github:everald/posthog-plugin-replicator",
     "bugs": {
         "url": "https://github.com/PostHog/posthog-plugin-replicator/issues"
     },
