@@ -19,6 +19,13 @@
             "required": true
         },
         {
+            "key": "eventsToIgnore",
+            "name": "Events to ignore",
+            "type": "string",
+            "default": "",
+            "hint": "Comma separated list of events to ignore"
+        },
+        {
             "key": "replication",
             "hint": "How many times should each event be sent",
             "name": "Replication",

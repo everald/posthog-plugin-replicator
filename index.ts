@@ -6,6 +6,7 @@ export interface ReplicatorMetaInput {
         host: string
         project_api_key: string
         replication: string
+        eventsToIgnore: string
     }
 }
 
@@ -39,8 +40,7 @@ const reverseAutocaptureEvent = (autocaptureEvent: StrippedEvent) => {
 
 const plugin: Plugin<ReplicatorMetaInput> = {
     exportEvents: async (events, { config }) => {
-        // filter out events, would love to get them from config like config.eventsToIgnore
-        const eventsToIgnore = new Set(['$autocapture', 'insurance__created', 'insurance_quote__created', 'quote_created'])
+        const eventsToIgnore = new Set(config.eventsToIgnore && config.eventsToIgnore.trim() !== "" ? config.eventsToIgnore.split(',').map(eventName => eventName.trim()) : null)
         
         const batch = []
         for (const event of events) {
